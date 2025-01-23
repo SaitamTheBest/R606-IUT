@@ -12,12 +12,8 @@ from .services.chat_service import ChatService
 import os
 import uuid
 import gc
-from PyPDF2 import PdfReader
-from sentence_transformers import SentenceTransformer, util
-import torch
 from django.http import StreamingHttpResponse
 import subprocess
-import json
 
 logger = logging.getLogger(__name__)
 
