@@ -87,7 +87,7 @@ class DocumentService:
                     logger.error(f"Error when removing file: {str(ex)}")
                     raise
             gc.collect()
-
+ 
     def store_document(self, content: str, metadata: dict) -> List[Document]:
         """Split content and prepare documents for vector store."""
         try:
