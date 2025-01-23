@@ -1,8 +1,7 @@
 import React, { useState, useCallback, useMemo } from 'react';
-import { Popconfirm, Input } from 'antd';
+import { Popconfirm, Input, App } from 'antd';
 import { MessageSquare, Plus, Trash2, Share2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { App } from 'antd';
 
 interface ChatSession {
   id: string;
