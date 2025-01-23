@@ -83,8 +83,9 @@ class DocumentService:
             if temp_path and os.path.exists(temp_path):
                 try:
                     os.remove(temp_path)
-                except:
-                    pass
+                except Exception as ex:
+                    logger.error(f"Error when removing file: {str(e)}")
+                    raise
             gc.collect()
 
     def store_document(self, content: str, metadata: dict) -> List[Document]:
