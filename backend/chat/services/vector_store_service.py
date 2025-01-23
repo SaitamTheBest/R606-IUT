@@ -1,13 +1,9 @@
 import logging
-from typing import List, Dict, Any
+from typing import List
 from langchain.schema import Document
 from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings.fastembed import FastEmbedEmbeddings
 from django.conf import settings
-import chromadb
-from chromadb.config import Settings
-import shutil
-import os
 
 logger = logging.getLogger(__name__)
 
