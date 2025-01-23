@@ -84,7 +84,7 @@ class DocumentService:
                 try:
                     os.remove(temp_path)
                 except Exception as ex:
-                    logger.error(f"Error when removing file: {str(e)}")
+                    logger.error(f"Error when removing file: {str(ex)}")
                     raise
             gc.collect()
 
