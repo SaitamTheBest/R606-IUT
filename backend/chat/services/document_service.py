@@ -1,19 +1,11 @@
-from typing import List, Dict, Any
+from typing import List
 import logging
 import os
-import tempfile
-from PyPDF2 import PdfReader
 from langchain_community.document_loaders import (
-    PyPDFLoader,
-    TextLoader,
-    UnstructuredMarkdownLoader,
     PDFPlumberLoader
 )
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.vectorstores import Chroma
 from langchain.schema import Document
-from ..models import Document as DBDocument
-import time
 import gc
 
 logger = logging.getLogger(__name__)
