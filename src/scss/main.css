@@ -625,9 +625,7 @@ body {
 [data-theme=dark] .chat-item:hover .deleteButtonChat > .lucide.lucide-trash2 {
   opacity: 1 !important;
 }
-[data-theme=dark] .ant-layout {
-  background-color: #252525 !important;
-}
+
 [data-theme=dark] .ant-layout-header {
   background-color: #181818 !important;
   box-shadow: "0 2px 8px rgba(0, 0, 0, 0.3)" !important;
