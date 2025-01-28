@@ -235,6 +235,7 @@ body {
   background-color: #2a2a2a !important;
   border-color: #444444 !important;
   color: #ffffff !important;
+  border-radius: 16px !important;
 }
 [data-theme=dark] .ant-select-selection-item {
   color: #ffffff !important;
@@ -375,9 +376,7 @@ body {
 [data-theme=dark] .ant-select-focused {
   border: 1px solid #ff9933 !important;
 }
-[data-theme=dark] .ant-select-selector {
-  border-radius: 16px !important;
-}
+
 [data-theme=dark] [id^=rc_select_] {
   color: #ffffff !important;
 }
