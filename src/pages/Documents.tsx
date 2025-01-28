@@ -67,6 +67,14 @@ const Documents: React.FC = () => {
     }
   };
 
+  const getColor = (type: string) => {
+    const colorMap: Record<string, string> = {
+      pdf: 'red',
+      md: 'blue',
+    };
+    return colorMap[type] || 'green';
+  };
+
   const columns = [
     {
       title: 'Name',
@@ -86,7 +94,7 @@ const Documents: React.FC = () => {
       dataIndex: 'file_type',
       key: 'file_type',
       render: (type: string) => (
-        <Tag color={type === 'pdf' ? 'red' : type === 'md' ? 'blue' : 'green'}>
+        <Tag color={getColor(type)}>
           {type.toUpperCase()}
         </Tag>
       ),

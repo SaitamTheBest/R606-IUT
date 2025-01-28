@@ -429,10 +429,6 @@ body {
 [data-theme='dark'] .ant-table-thead>tr>th{
     color : white !important;
     background-color: #2a2a2a !important;
-}
-
-/*Pour la ligne du tableau*/
-[data-theme='dark'] .ant-table-thead >tr>th{
     border-bottom: 1px solid #444444 !important;
 }
 

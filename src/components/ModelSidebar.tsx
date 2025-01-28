@@ -19,9 +19,9 @@ const ModelSidebar: React.FC<ModelSidebarProps> = ({ currentModel, onModelChange
       <h3 className="text-lg font-semibold mb-4 container-model-sidebar-title">Model Settings</h3>
       <div className="space-y-4">
         <div className='container-list-model'>
-          <label className="block text-sm font-medium mb-2 ">
+          <p className="block text-sm font-medium mb-2 ">
             LLM Model
-          </label>
+          </p>
           <Select
             value={currentModel}
             onChange={onModelChange}
