@@ -12,14 +12,8 @@ class ChatConfig(AppConfig):
             # Import and initialize services only when not running migrations
             from django.db import connection
             if connection.connection is not None:
-                from .services.vector_store_service import VectorStoreService
-                from .services.document_service import DocumentService
-                from .services.chat_service import ChatService
                 
                 logger.info("Initializing services...")
-                vector_store_service = VectorStoreService()
-                document_service = DocumentService()
-                chat_service = ChatService(vector_store_service)
                 logger.info("Services initialized successfully")
         except Exception as e:
             logger.error(f"Error initializing services: {str(e)}")
