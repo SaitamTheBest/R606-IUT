@@ -584,9 +584,6 @@ body {
   border: 0px;
 }
 
-[data-theme=dark] .ant-menu-item:hover {
-  background-color: #2a2a2a !important;
-}
 [data-theme=dark] :where(.css-dev-only-do-not-override-1hpnbz2).ant-menu-inline.ant-menu-root .ant-menu-item > .ant-menu-title-content {
   color: #888888 !important;
 }
