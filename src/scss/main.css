@@ -622,9 +622,7 @@ body {
 [data-theme=dark] :where(.css-dev-only-do-not-override-1hpnbz2).ant-menu-light.ant-menu-root.ant-menu-inline {
   background-color: #1f1f1f !important;
 }
-[data-theme=dark] .ant-popconfirm-description {
-  color: #ff9933 !important;
-}
+
 [data-theme=dark] .chat-item {
   background-color: #1f1f1f !important;
   color: #888888 !important;
