@@ -625,11 +625,6 @@ body {
 [data-theme=dark] .chat-item:hover .deleteButtonChat > .lucide.lucide-trash2 {
   opacity: 1 !important;
 }
-
-
-[data-theme=dark] .site-title {
-  color: #ffffff !important;
-}
 [data-theme=dark] .ant-layout {
   background-color: #252525 !important;
 }
