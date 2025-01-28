@@ -18,13 +18,13 @@ class ChatService:
         self.model_name = model_name
         self.llm = Ollama(model=self.model_name)
         
-        # Initialiser l'encoder une seule fois
+        # Initialyse encoder in one time
         self.encoder = SentenceTransformer("paraphrase-mpnet-base-v2")
         
-        # Définir la fonction d'embedding personnalisée
+        # Define personal embedding function
         self.embedding_function = lambda texts: self.encoder.encode(texts).tolist()
         
-        # Configurer ChromaDB avec la fonction d'embedding personnalisée
+        # Configure Chroma with the personnal embedding function
         self.vector_store = Chroma(
             collection_name="documents",
             embedding_function=self.embedding_function
