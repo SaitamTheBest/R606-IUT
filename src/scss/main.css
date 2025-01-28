@@ -584,9 +584,7 @@ body {
   border: 0px;
 }
 
-[data-theme=dark] .ant-menu-item {
-  color: #888888 !important;
-}
+
 [data-theme=dark] .ant-menu-item-selected {
   background-color: #444444 !important;
 }
