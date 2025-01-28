@@ -94,10 +94,10 @@ class DocumentUploadView(APIView):
             content = document_service.process_file(file, file_extension)
             gc.collect()
 
-            # Générer un chroma_id unique
+            # Generate a unique ID for the document
             chroma_id = str(uuid.uuid4())
             
-            # Créer le document avec le chroma_id
+            # Store in database
             document = Document.objects.create(
                 name=file.name,
                 file_type=file_extension,
@@ -111,7 +111,7 @@ class DocumentUploadView(APIView):
                 {"filename": file.name, "id": str(document.id), "chroma_id": chroma_id}
             )
             
-            # Ajouter les documents au vector store par lots
+            # Add documents in batches
             batch_size = 5
             for i in range(0, len(documents), batch_size):
                 batch = documents[i:i + batch_size]
@@ -140,9 +140,9 @@ class DocumentListView(APIView):
     def delete(self, request, document_id):
         try:
             document = Document.objects.get(id=document_id)
-            # Supprimer d'abord de ChromaDB
+            # Delete from vector store first
             vector_store_service.delete_document(document.chroma_id)
-            # Puis supprimer de la base de données
+            # Then delete from database
             document.delete()
             return Response(status=status.HTTP_204_NO_CONTENT)
         except Document.DoesNotExist:
