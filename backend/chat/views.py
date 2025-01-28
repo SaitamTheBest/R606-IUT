@@ -183,10 +183,6 @@ class ChatShareView(APIView):
             )
             
         try:
-            shared_chat = SharedChat.objects.create(
-                chat_id=chat_id,
-                history=history
-            )
             return Response({
                 'shareUrl': f'/shared-chat/{chat_id}',
                 'chatId': chat_id
