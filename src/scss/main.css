@@ -583,9 +583,7 @@ body {
   background-color: #1f1f1f !important;
   border: 0px;
 }
-[data-theme=dark] .btn-new-chat {
-  background-color: #ff9933 !important;
-}
+
 [data-theme=dark] .btn-new-chat:hover {
   background-color: darkorange !important;
 }
