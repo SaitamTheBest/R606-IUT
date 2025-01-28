@@ -41,7 +41,7 @@ class VectorStoreService:
     def search_documents(self, query: str, k: int = 6) -> List[Document]:
         """Search for relevant documents based on query."""
         try:
-            # Vérifier que la collection n'est pas vide
+            # Get collection size and verify it is not empty
             collection_size = len(self.vector_store.get()['ids'])
             if collection_size == 0:
                 logger.warning("Vector store is empty!")
@@ -49,10 +49,10 @@ class VectorStoreService:
                 
             logger.info(f"Searching in {collection_size} documents")
             
-            # Rechercher les documents
+            # Perform similarity search
             results = self.vector_store.similarity_search(query, k=k)
             
-            # Log les résultats
+            # Log results
             logger.info(f"Found {len(results)} relevant documents")
             for doc in results:
                 logger.info(f"Found document: {doc.metadata.get('filename')} - Content preview: {doc.page_content[:100]}...")
@@ -66,17 +66,17 @@ class VectorStoreService:
     def delete_document(self, chroma_id: str) -> None:
         """Delete all chunks of a document from the vector store."""
         try:
-            # Récupérer tous les documents
+            # Get all documents
             results = self.vector_store.get()
             
-            # Trouver les IDs des chunks à supprimer
+            # Find all chunks with matching chroma_id
             ids_to_delete = []
             for i, metadata in enumerate(results['metadatas']):
                 if metadata.get('chroma_id') == chroma_id:
                     ids_to_delete.append(results['ids'][i])
             
             if ids_to_delete:
-                # Supprimer les chunks
+                # Delete all chunks
                 self.vector_store._collection.delete(
                     ids=ids_to_delete
                 )
