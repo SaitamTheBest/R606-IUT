@@ -656,9 +656,6 @@ body {
   z-index: 1000 !important;
 }
 
-[data-theme=dark] .ant-menu-item {
-  color: #ffffff !important;
-}
 [data-theme=dark] .ant-menu-item-selected::after {
   border-bottom-color: #ff9933 !important;
 }
