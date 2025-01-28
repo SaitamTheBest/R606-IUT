@@ -18,6 +18,12 @@
     .acss-1v5259w{
       background-color: #252525;
       width: 82%;
+      @include light.scrollbar-styles(
+        map.get(map.get(vars.$sizes, 'scrollbar'), 'medium'),
+        $bg-primary,
+        $border,
+        #555555
+      );
     }
     // Pour le titre
     h1 {
@@ -193,15 +199,5 @@
         color: $accent !important;
         border: 1px solid $accent !important;
       }
-    }
-  
-    // Pour la scrollbar du chat
-    .acss-1v5259w {
-      @include light.scrollbar-styles(
-        map.get(map.get(vars.$sizes, 'scrollbar'), 'medium'),
-        $bg-primary,
-        $border,
-        #555555
-      );
     }
   }
