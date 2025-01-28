@@ -3,8 +3,6 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'fallback-default-key')
-
 DEBUG = True
 
 ALLOWED_HOSTS = ['192.168.137.2','192.168.0.149', 'localhost']
