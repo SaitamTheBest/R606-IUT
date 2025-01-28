@@ -23,19 +23,19 @@ class DocumentService:
         """Process different file types and split into chunks."""
         temp_path = None
         try:
-            # Créer un répertoire temporaire si nécessaire
+            # Create a temporary directory
             temp_dir = os.path.join(os.getcwd(), 'temp')
             os.makedirs(temp_dir, exist_ok=True)
             
-            # Utiliser un nom de fichier unique
+            # Use a temporary file path
             temp_path = os.path.join(temp_dir, f"temp_{file.name}")
             
-            # Écrire le fichier temporaire
+            # Write the file to the temporary path
             with open(temp_path, 'wb') as destination:
                 for chunk in file.chunks():
                     destination.write(chunk)
             
-            # Extraire le texte selon le type de fichier
+            # Extract text from different file types
             if file_type == 'pdf':
                 loader = PDFPlumberLoader(temp_path)
                 docs = loader.load_and_split()
@@ -44,13 +44,13 @@ class DocumentService:
                 with open(temp_path, 'r', encoding='utf-8') as text_file:
                     text = text_file.read()
             
-            # Normaliser les espaces
+            # Normalize text
             text = ' '.join(text.split())
             
-            # Découper en phrases
+            # Split text into sentences
             sentences = text.replace('? ', '?<split>').replace('! ', '!<split>').replace('. ', '.<split>').split('<split>')
             
-            # Créer des chunks de taille maximale
+            # Split text into chunks
             chunks = []
             current_chunk = ""
             
@@ -64,7 +64,7 @@ class DocumentService:
             if current_chunk:
                 chunks.append(current_chunk)
             
-            # Joindre les chunks avec des séparateurs
+            # Join chunks with newlines
             return "\n\n".join(chunks)
 
         except Exception as e:
@@ -83,11 +83,11 @@ class DocumentService:
     def store_document(self, content: str, metadata: dict) -> List[Document]:
         """Split content and prepare documents for vector store."""
         try:
-            # Découper le contenu en chunks
+            # Split content into chunks
             texts = self.text_splitter.split_text(content)
             logger.info(f"Split document into {len(texts)} chunks")
             
-            # Créer les documents Langchain
+            # Prepare documents
             documents = []
             for i, text in enumerate(texts):
                 doc_metadata = metadata.copy()
@@ -100,7 +100,7 @@ class DocumentService:
                 )
             
             logger.info(f"Created {len(documents)} Langchain documents")
-            # Log le premier document pour vérification
+            # Log sample document content
             if documents:
                 logger.info(f"Sample document content: {documents[0].page_content[:100]}...")
             
@@ -111,7 +111,7 @@ class DocumentService:
             raise
 
     def _chunk_content(self, content, chunk_size=1000, overlap=100):
-        """Divise le contenu en chunks avec chevauchement."""
+        """Split content into chunks with overlap."""
         chunks = []
         start = 0
         content_length = len(content)
@@ -121,7 +121,7 @@ class DocumentService:
             if end > content_length:
                 end = content_length
             
-            # Trouver la fin de la dernière phrase complète
+            # Find the end of the sentence
             while end < content_length and content[end] not in ['.', '!', '?', '\n']:
                 end += 1
             if end < content_length:
