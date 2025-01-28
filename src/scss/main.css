@@ -626,11 +626,6 @@ body {
   opacity: 1 !important;
 }
 
-[data-theme=dark] .ant-layout-header {
-  background-color: #181818 !important;
-  box-shadow: "0 2px 8px rgba(0, 0, 0, 0.3)" !important;
-  z-index: 1000 !important;
-}
 
 [data-theme=dark] .ant-menu-item-selected::after {
   border-bottom-color: #ff9933 !important;
