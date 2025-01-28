@@ -105,7 +105,7 @@ Final response (YES/NO):
         )
         
         response = self.llm.invoke(context_check_prompt.format(query=query))
-        print(f"\n=== Context Check Details ===")
+        print("=== Context Check Details ===")
         print(f"Query: {query}")
         print(f"Raw response: {response}")
         print(f"Final decision: {response.strip().upper() == 'YES'}")
@@ -134,12 +134,12 @@ Final response (YES/NO):
                         formatted_messages.append(f"Assistant: {content}")
                 formatted_history = "\n".join(formatted_messages)
 
-            print(f"\n=== Chat History ===")
+            print("=== Chat History ===")
             print(formatted_history)
             
             # Check if we need document context
             needs_context = self.should_use_context(query)
-            print(f"\n=== Context Check ===")
+            print("=== Context Check ===")
             print(f"Query: {query}")
             print(f"Needs context: {needs_context}")
             
@@ -149,7 +149,7 @@ Final response (YES/NO):
                 
                 # Print vector store status
                 collection_size = len(vector_store.get()['ids'])
-                print(f"\n=== Vector Store Status ===")
+                print("=== Vector Store Status ===")
                 print(f"Total documents in store: {collection_size}")
                 
                 # First get documents directly
@@ -159,7 +159,7 @@ Final response (YES/NO):
                     filter=None
                 )
                 
-                print(f"\n=== Retrieved Documents ===")
+                print("=== Retrieved Documents ===")
                 print(f"Number of documents found: {len(results)}")
                 for idx, doc in enumerate(results):
                     print(f"\nDocument {idx + 1}:")
@@ -222,10 +222,10 @@ Final response (YES/NO):
                     "current_date": datetime.now(ZoneInfo("UTC")).strftime("%Y-%m-%d %H:%M:%S UTC")
                 })
                 
-                print(f"\n=== Final Response ===")
+                print("=== Final Response ===")
                 print(f"Answer: {response['answer']}")
                 if 'context' in response:
-                    print(f"\n=== Context Used ===")
+                    print("=== Context Used ===")
                     print(response['context'])
                 
                 answer = response["answer"]
@@ -261,7 +261,7 @@ Final response (YES/NO):
             return answer
 
         except Exception as e:
-            print(f"\n=== Error ===")
+            print("=== Error ===")
             print(f"Error generating response: {str(e)}")
             logger.error(f"Error generating response in chat {chat_id}: {str(e)}")
             raise
