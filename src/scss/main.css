@@ -658,9 +658,7 @@ body {
   box-shadow: "0 2px 8px rgba(0, 0, 0, 0.3)" !important;
   z-index: 1000 !important;
 }
-[data-theme=dark] .ant-menu {
-  background-color: #181818 !important;
-}
+
 [data-theme=dark] .ant-menu-item {
   color: #ffffff !important;
 }
