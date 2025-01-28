@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-//import '../css/ThemeToggle.css';
 
 
 interface ThemeToggleProps {
@@ -26,7 +25,7 @@ interface ThemeToggleProps {
     return (
       <input
         type="checkbox"
-        className={`theme-checkbox ${className || ''}`}
+        className={`theme-checkbox ${className ?? ''}`}
         checked={isDark}
         onChange={toggleTheme}
       />
