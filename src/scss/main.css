@@ -692,6 +692,3 @@ body {
 [data-theme=dark] .container-list-model > .ant-select-focused {
   border: 1px solid #888888 !important;
 }
-[data-theme=dark] .ant-select-selector {
-  background-color: #333333 !important;
-}/*# sourceMappingURL=main.css.map */
