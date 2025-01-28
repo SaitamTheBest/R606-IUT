@@ -584,9 +584,6 @@ body {
   border: 0px;
 }
 
-[data-theme=dark] .btn-new-chat:hover {
-  background-color: darkorange !important;
-}
 [data-theme=dark] .ant-menu-item {
   color: #888888 !important;
 }
